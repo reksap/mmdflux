@@ -235,10 +235,21 @@ fn hydrate_replay(
 
     let geometry = hydrate_graph_geometry_from_document_with_diagram(payload, &diagram)
         .map_err(display_error)?;
-    let routed = has_routed_geometry
+    let mut routed = has_routed_geometry
         .then(|| hydrate_routed_geometry_from_document_with_provider(payload, text_metrics))
         .transpose()
         .map_err(display_error)?;
+
+    // Layout-level ER documents carry node positions but no edge paths.
+    // Route those positions before emission so endpoint cardinalities survive replay.
+    if routed.is_none() && payload.metadata.diagram_type == "er" {
+        routed = Some(crate::graph::routing::route_graph_geometry_with_provider(
+            &diagram,
+            &geometry,
+            crate::graph::routing::EdgeRouting::OrthogonalRoute,
+            text_metrics,
+        ));
+    }
 
     Ok((diagram, geometry, routed))
 }

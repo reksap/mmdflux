@@ -11,6 +11,8 @@ pub enum Diagram {
     Flowchart(crate::graph::Graph),
     /// Class diagram payload (graph-family).
     Class(crate::graph::Graph),
+    /// Entity relationship payload (graph-family).
+    Er(crate::graph::Graph),
     /// Sequence diagram payload.
     Sequence(crate::timeline::Sequence),
     /// State diagram payload (graph-family).

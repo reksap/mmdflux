@@ -357,6 +357,10 @@ pub(crate) fn marker_id_for_arrow(arrow: Arrow) -> Option<&'static str> {
         Arrow::OpenTriangle => Some("open-arrowhead"),
         Arrow::Diamond => Some("diamondhead"),
         Arrow::OpenDiamond => Some("open-diamondhead"),
+        Arrow::ErOne => Some("er-one"),
+        Arrow::ErZeroOrOne => Some("er-zero-or-one"),
+        Arrow::ErOneOrMore => Some("er-one-or-more"),
+        Arrow::ErZeroOrMore => Some("er-zero-or-more"),
         Arrow::None => None,
     }
 }
@@ -392,6 +396,7 @@ fn marker_offset_for_arrow(arrow: Arrow) -> f64 {
         Arrow::Diamond => 5.0,
         Arrow::OpenDiamond => 6.0,
         Arrow::Circle => 10.0,
+        Arrow::ErOne | Arrow::ErZeroOrOne | Arrow::ErOneOrMore | Arrow::ErZeroOrMore => 2.0,
         Arrow::Cross | Arrow::None => 0.0,
     }
 }

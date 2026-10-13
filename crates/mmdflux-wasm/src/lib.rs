@@ -278,6 +278,18 @@ impl Drop for DynamicRenderGuard {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn er_render_uses_shared_facade() {
+        let source = "erDiagram\nCUSTOMER { int id PK }\nCUSTOMER ||--o{ ORDER : places";
+        for format in ["text", "ascii", "svg", "mmds"] {
+            let output = super::render(source, format, "{}").unwrap();
+            assert!(output.contains("CUSTOMER"));
+            if format == "svg" {
+                assert!(output.contains("er-zero-or-more"));
+            }
+        }
+    }
+
     use mmdflux::format::EdgePreset;
     use mmdflux::graph::GeometryLevel;
     use mmdflux::simplification::PathSimplification;

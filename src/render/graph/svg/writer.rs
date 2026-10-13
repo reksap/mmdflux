@@ -192,6 +192,32 @@ pub(super) fn render_defs(
                 writer.push_line(&polygon);
                 writer.end_tag("</marker>");
             }
+            "er-one" | "er-zero-or-one" | "er-one-or-more" | "er-zero-or-more" => {
+                writer.start_tag(&format!(
+                    "<marker id=\"{}\" viewBox=\"0 0 20 12\" refX=\"20\" refY=\"6\" markerWidth=\"{}\" markerHeight=\"{}\" orient=\"auto-start-reverse\" markerUnits=\"userSpaceOnUse\">",
+                    marker.id, fmt_f64(20.0 * scale), fmt_f64(12.0 * scale)
+                ));
+                let outer = if matches!(marker.kind, "er-one-or-more" | "er-zero-or-more") {
+                    "M 12 6 L 20 1 M 12 6 L 20 6 M 12 6 L 20 11"
+                } else {
+                    "M 18 1 L 18 11"
+                };
+                let inner = if marker.kind == "er-one" || marker.kind == "er-one-or-more" {
+                    "M 8 1 L 8 11"
+                } else {
+                    ""
+                };
+                writer.push_line(&format!("<path d=\"{outer} {inner}\" fill=\"none\" stroke=\"{marker_color}\" stroke-width=\"1\"{stroke_dynamic_attrs} />"));
+                if marker.kind == "er-zero-or-one" || marker.kind == "er-zero-or-more" {
+                    let fill = palette
+                        .root_style
+                        .background_color
+                        .as_deref()
+                        .unwrap_or("white");
+                    writer.push_line(&format!("<circle cx=\"6\" cy=\"6\" r=\"4\" fill=\"{fill}\" stroke=\"{marker_color}\" stroke-width=\"1\"{circle_dynamic_attrs} />"));
+                }
+                writer.end_tag("</marker>");
+            }
             _ => {}
         }
     }

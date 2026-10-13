@@ -2,21 +2,43 @@ export interface PlaygroundExample {
   id: string;
   name: string;
   description: string;
-  category: "flowchart" | "class";
+  category: "flowchart" | "class" | "er";
   featured: boolean;
   input: string;
 }
 
 export type ExampleCategory = PlaygroundExample["category"];
 
-export const EXAMPLE_CATEGORY_ORDER: ExampleCategory[] = ["flowchart", "class"];
+export const EXAMPLE_CATEGORY_ORDER: ExampleCategory[] = [
+  "flowchart",
+  "class",
+  "er",
+];
 
 export const EXAMPLE_CATEGORY_LABELS: Record<ExampleCategory, string> = {
   flowchart: "Flowchart",
   class: "Class",
+  er: "Entity Relationship",
 };
 
 export const PLAYGROUND_EXAMPLES: PlaygroundExample[] = [
+  {
+    id: "er-orders",
+    name: "Customers and Orders",
+    description: "Entities with keys and a one-to-many relationship",
+    category: "er",
+    featured: true,
+    input: `erDiagram
+    CUSTOMER {
+        int id PK
+        string name
+    }
+    ORDER {
+        int id PK
+        int customer_id FK
+    }
+    CUSTOMER ||--o{ ORDER : places`,
+  },
   {
     id: "flowchart-basics",
     name: "Flowchart Basics",

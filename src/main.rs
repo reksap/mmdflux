@@ -1058,22 +1058,23 @@ fn main() -> io::Result<()> {
     }
 
     // Render through the shared facade contract.
-    let rendered = if format == OutputFormat::Mmds && matches!(diagram_id, "flowchart" | "class") {
-        materialize_diagram(&input, &config).and_then(|document| {
-            let output = render_document(&document, OutputFormat::Mmds, &config)?;
-            if !cli.quiet
-                && document.geometry_level == GeometryLevel::Routed
-                && config.geometry_level == GeometryLevel::Routed
-            {
-                for line in extract_mmds_unfit_warning_lines(&document) {
-                    eprintln!("{line}");
+    let rendered =
+        if format == OutputFormat::Mmds && matches!(diagram_id, "flowchart" | "class" | "er") {
+            materialize_diagram(&input, &config).and_then(|document| {
+                let output = render_document(&document, OutputFormat::Mmds, &config)?;
+                if !cli.quiet
+                    && document.geometry_level == GeometryLevel::Routed
+                    && config.geometry_level == GeometryLevel::Routed
+                {
+                    for line in extract_mmds_unfit_warning_lines(&document) {
+                        eprintln!("{line}");
+                    }
                 }
-            }
-            Ok(output)
-        })
-    } else {
-        render_diagram(&input, format, &config)
-    };
+                Ok(output)
+            })
+        } else {
+            render_diagram(&input, format, &config)
+        };
 
     match rendered {
         Ok(output) => match &cli.output {

@@ -305,3 +305,31 @@ test("normalizeMmds consumes the locked shared flowchart contract fixture", () =
   assert.equal(normalized.edges[0]?.source, "A");
   assert.equal(normalized.edges[0]?.target, "B");
 });
+
+test("normalizeMmds retains all ER cardinality tokens at both endpoints", () => {
+  for (const marker of [
+    "er_one",
+    "er_zero_or_one",
+    "er_one_or_more",
+    "er_zero_or_more",
+  ]) {
+    const normalized = normalizeMmds({
+      version: 1,
+      geometry_level: "layout",
+      metadata: { diagram_type: "er", direction: "TD" },
+      nodes: [],
+      edges: [
+        {
+          id: "r",
+          source: "A",
+          target: "B",
+          arrow_start: marker,
+          arrow_end: marker,
+        },
+      ],
+    });
+    assert.equal(normalized.edges[0].arrow_start, marker);
+    assert.equal(normalized.edges[0].arrow_end, marker);
+    assert.equal(normalized.metadata.diagram_type, "er");
+  }
+});

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 354.94 166.00" style="max-width: 354.94px; background-color: transparent;" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif" font-size="16.00">
+  <g transform="translate(0.00,0.00)">
+    <g class="edgePaths">
+    </g>
+    <g class="nodes">
+      <g class="node default" id="EMPTY" data-id="EMPTY" data-look="classic">
+        <rect x="8.00" y="8.00" width="115.12" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="65.56" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">EMPTY</text>
+      </g>
+      <g class="node default" id="Sales_Customer" data-id="Sales Customer" data-look="classic">
+        <rect x="173.12" y="8.00" width="173.82" height="150.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="260.03" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">Sales Customer</text>
+        <line x1="173.12" y1="59.00" x2="346.94" y2="59.00" stroke="#333" stroke-width="1.00" />
+        <text x="188.12" y="83.00" text-anchor="start" dominant-baseline="middle" fill="#333">int id PK,UK</text>
+        <text x="188.12" y="107.00" text-anchor="start" dominant-baseline="middle" fill="#333">string name</text>
+        <text x="188.12" y="131.00" text-anchor="start" dominant-baseline="middle" fill="#333">int parent_id FK</text>
+      </g>
+    </g>
+    <g class="edgeLabels">
+    </g>
+  </g>
+</svg>

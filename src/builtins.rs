@@ -4,7 +4,7 @@
 //! [`crate::registry::DiagramRegistry`]. Reusable registry contracts live in
 //! [`crate::registry`].
 
-use crate::diagrams::{class, flowchart, sequence, state};
+use crate::diagrams::{class, er, flowchart, sequence, state};
 use crate::format::OutputFormat;
 use crate::registry::{DiagramDefinition, DiagramDetector, DiagramFamily, DiagramRegistry};
 
@@ -44,6 +44,14 @@ pub fn default_registry() -> DiagramRegistry {
         family: DiagramFamily::Graph,
         detector: class::detect as DiagramDetector,
         factory: || Box::new(class::ClassInstance::new()),
+        supported_formats: GRAPH_FAMILY_FORMATS,
+    });
+
+    registry.register(DiagramDefinition {
+        id: "er",
+        family: DiagramFamily::Graph,
+        detector: er::detect as DiagramDetector,
+        factory: || Box::new(er::ErInstance),
         supported_formats: GRAPH_FAMILY_FORMATS,
     });
 

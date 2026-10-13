@@ -669,7 +669,10 @@ pub fn resolve_browser_text_metrics_request(
     let payload =
         super::payload::prepare_payload_for_render(parsed.into_payload()?, &effective_config);
     let graph = match &payload {
-        Diagram::Flowchart(graph) | Diagram::Class(graph) | Diagram::State(graph) => graph,
+        Diagram::Flowchart(graph)
+        | Diagram::Er(graph)
+        | Diagram::Class(graph)
+        | Diagram::State(graph) => graph,
         Diagram::Sequence(_) => return Ok(browser_text_metrics_not_required()),
     };
 
@@ -1008,6 +1011,9 @@ where
             &mut graph,
             &render_context,
         ),
+        Diagram::Er(mut graph) => {
+            render_graph_family_payload_with_dynamic_metrics("er", &mut graph, &render_context)
+        }
         Diagram::Class(mut graph) => {
             render_graph_family_payload_with_dynamic_metrics("class", &mut graph, &render_context)
         }
@@ -1364,6 +1370,33 @@ mod tests {
             }],
             profile_id: None,
             profile_version: None,
+        }
+    }
+
+    #[test]
+    fn er_dynamic_metrics_preserve_markers_and_replay() {
+        let source = "erDiagram\nCUSTOMER { int id PK }\nCUSTOMER ||--o{ ORDER : places";
+        for format in [OutputFormat::Svg, OutputFormat::Mmds] {
+            let output = render_graph_family_with_dynamic_text_metrics(
+                source,
+                format,
+                &routed_config(),
+                profiled_input("er-browser-v1"),
+                deterministic_width,
+            )
+            .unwrap();
+            assert!(output.contains("CUSTOMER"));
+            if format == OutputFormat::Svg {
+                assert!(output.contains("marker-end=\"url(#er-zero-or-more)\""));
+            } else {
+                let replay = crate::runtime::render_diagram(
+                    &output,
+                    OutputFormat::Svg,
+                    &RenderConfig::default(),
+                )
+                .unwrap();
+                assert!(replay.contains("marker-end=\"url(#er-zero-or-more)\""));
+            }
         }
     }
 

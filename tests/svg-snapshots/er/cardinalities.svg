@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 738.95 240.00" style="max-width: 738.95px; background-color: transparent;" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif" font-size="16.00">
+  <defs>
+    <marker id="er-one" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 18 1 L 18 11 M 8 1 L 8 11" fill="none" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-one-or-more" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 12 6 L 20 1 M 12 6 L 20 6 M 12 6 L 20 11 M 8 1 L 8 11" fill="none" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-zero-or-more" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 12 6 L 20 1 M 12 6 L 20 6 M 12 6 L 20 11 " fill="none" stroke="#333" stroke-width="1" />
+      <circle cx="6" cy="6" r="4" fill="white" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-zero-or-one" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 18 1 L 18 11 " fill="none" stroke="#333" stroke-width="1" />
+      <circle cx="6" cy="6" r="4" fill="white" stroke="#333" stroke-width="1" />
+    </marker>
+  </defs>
+  <g transform="translate(0.00,0.00)">
+    <g class="edgePaths">
+      <path d="M64.67,64.00 L64.67,176.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#er-one)" marker-end="url(#er-one)" />
+      <path d="M232.46,64.00 L232.46,176.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5.00" marker-start="url(#er-zero-or-one)" marker-end="url(#er-zero-or-one)" />
+      <path d="M412.70,64.00 L412.70,176.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#er-one-or-more)" marker-end="url(#er-one-or-more)" />
+      <path d="M632.94,64.00 L632.94,176.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5.00" marker-start="url(#er-zero-or-more)" marker-end="url(#er-zero-or-more)" />
+    </g>
+    <g class="nodes">
+      <g class="node default" id="ANY" data-id="ANY" data-look="classic">
+        <rect x="586.49" y="8.00" width="92.90" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="632.94" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">ANY</text>
+      </g>
+      <g class="node default" id="EXACT" data-id="EXACT" data-look="classic">
+        <rect x="8.00" y="178.00" width="113.34" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="64.67" y="205.00" text-anchor="middle" dominant-baseline="middle" fill="#333">EXACT</text>
+      </g>
+      <g class="node default" id="MANY" data-id="MANY" data-look="classic">
+        <rect x="359.58" y="8.00" width="106.23" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="412.70" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">MANY</text>
+      </g>
+      <g class="node default" id="MAYBE" data-id="MAYBE" data-look="classic">
+        <rect x="174.45" y="178.00" width="116.02" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="232.46" y="205.00" text-anchor="middle" dominant-baseline="middle" fill="#333">MAYBE</text>
+      </g>
+      <g class="node default" id="ONE" data-id="ONE" data-look="classic">
+        <rect x="17.34" y="8.00" width="94.67" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="64.67" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">ONE</text>
+      </g>
+      <g class="node default" id="OPTIONAL" data-id="OPTIONAL" data-look="classic">
+        <rect x="162.01" y="8.00" width="140.91" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="232.46" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">OPTIONAL</text>
+      </g>
+      <g class="node default" id="OPTIONAL_MANY" data-id="OPTIONAL_MANY" data-look="classic">
+        <rect x="534.92" y="178.00" width="196.03" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="632.94" y="205.00" text-anchor="middle" dominant-baseline="middle" fill="#333">OPTIONAL_MANY</text>
+      </g>
+      <g class="node default" id="REQUIRED" data-id="REQUIRED" data-look="classic">
+        <rect x="340.47" y="178.00" width="144.45" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="412.70" y="205.00" text-anchor="middle" dominant-baseline="middle" fill="#333">REQUIRED</text>
+      </g>
+    </g>
+    <g class="edgeLabels">
+      <rect x="35.77" y="86.00" width="57.80" height="28.00" fill="white" />
+      <text x="64.67" y="100.00" text-anchor="middle" dominant-baseline="middle" fill="#333">exactly</text>
+      <rect x="194.66" y="86.00" width="75.60" height="28.00" fill="white" />
+      <text x="232.46" y="100.00" text-anchor="middle" dominant-baseline="middle" fill="#333">optionally</text>
+      <rect x="381.13" y="86.00" width="63.13" height="28.00" fill="white" />
+      <text x="412.70" y="100.00" text-anchor="middle" dominant-baseline="middle" fill="#333">multiple</text>
+      <rect x="616.04" y="86.00" width="33.80" height="28.00" fill="white" />
+      <text x="632.94" y="100.00" text-anchor="middle" dominant-baseline="middle" fill="#333">any</text>
+    </g>
+  </g>
+</svg>

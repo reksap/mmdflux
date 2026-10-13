@@ -39,6 +39,10 @@ const EDGE_ARROWS = new Set<MmdsArrow>([
   "open_triangle",
   "diamond",
   "open_diamond",
+  "er_one",
+  "er_zero_or_one",
+  "er_one_or_more",
+  "er_zero_or_more",
 ]);
 
 const PORT_FACES = new Set<MmdsPortFace>(["top", "bottom", "left", "right"]);

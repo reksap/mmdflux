@@ -158,6 +158,10 @@ impl MmdsToken for Stroke {
 impl MmdsToken for Arrow {
     fn parse_mmds(value: &str) -> Result<Self, MmdsTokenError> {
         match value {
+            "er_one" => Ok(Arrow::ErOne),
+            "er_zero_or_one" => Ok(Arrow::ErZeroOrOne),
+            "er_one_or_more" => Ok(Arrow::ErOneOrMore),
+            "er_zero_or_more" => Ok(Arrow::ErZeroOrMore),
             "normal" => Ok(Arrow::Normal),
             "none" => Ok(Arrow::None),
             "cross" => Ok(Arrow::Cross),
@@ -171,6 +175,10 @@ impl MmdsToken for Arrow {
 
     fn as_mmds_str(&self) -> &'static str {
         match self {
+            Arrow::ErOne => "er_one",
+            Arrow::ErZeroOrOne => "er_zero_or_one",
+            Arrow::ErOneOrMore => "er_one_or_more",
+            Arrow::ErZeroOrMore => "er_zero_or_more",
             Arrow::Normal => "normal",
             Arrow::None => "none",
             Arrow::Cross => "cross",

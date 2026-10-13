@@ -155,7 +155,7 @@
       "required": ["stroke", "arrow_start", "arrow_end", "minlen"],
       "properties": {
         "stroke": {
-          "enum": ["solid", "dotted", "thick", "invisible"],
+          "enum": ["solid", "dotted", "dashed", "thick", "invisible"],
           "description": "Default edge stroke used when an edge omits stroke."
         },
         "arrow_start": {
@@ -166,7 +166,11 @@
             "circle",
             "open_triangle",
             "diamond",
-            "open_diamond"
+            "open_diamond",
+            "er_one",
+            "er_zero_or_one",
+            "er_one_or_more",
+            "er_zero_or_more"
           ],
           "description": "Default source-end marker used when an edge omits arrow_start."
         },
@@ -178,7 +182,11 @@
             "circle",
             "open_triangle",
             "diamond",
-            "open_diamond"
+            "open_diamond",
+            "er_one",
+            "er_zero_or_one",
+            "er_one_or_more",
+            "er_zero_or_more"
           ],
           "description": "Default target-end marker used when an edge omits arrow_end."
         },
@@ -319,7 +327,7 @@
           "description": "Edge label text."
         },
         "stroke": {
-          "enum": ["solid", "dotted", "thick", "invisible"],
+          "enum": ["solid", "dotted", "dashed", "thick", "invisible"],
           "default": "solid",
           "description": "Stroke style. If omitted, consumers should use defaults.edge.stroke."
         },
@@ -331,7 +339,11 @@
             "circle",
             "open_triangle",
             "diamond",
-            "open_diamond"
+            "open_diamond",
+            "er_one",
+            "er_zero_or_one",
+            "er_one_or_more",
+            "er_zero_or_more"
           ],
           "default": "none",
           "description": "Arrow at source end. If omitted, consumers should use defaults.edge.arrow_start."
@@ -344,7 +356,11 @@
             "circle",
             "open_triangle",
             "diamond",
-            "open_diamond"
+            "open_diamond",
+            "er_one",
+            "er_zero_or_one",
+            "er_one_or_more",
+            "er_zero_or_more"
           ],
           "default": "normal",
           "description": "Arrow at target end. If omitted, consumers should use defaults.edge.arrow_end."

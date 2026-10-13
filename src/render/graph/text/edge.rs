@@ -941,7 +941,14 @@ pub(super) fn arrow_glyph(
         (Arrow::OpenTriangle, AttachDirection::Right) => charset.arrow_open_left,
         (Arrow::Diamond, _) => charset.arrow_diamond,
         (Arrow::OpenDiamond, _) => charset.arrow_open_diamond,
-        (Arrow::None, _) => return None,
+        (
+            Arrow::None
+            | Arrow::ErOne
+            | Arrow::ErZeroOrOne
+            | Arrow::ErOneOrMore
+            | Arrow::ErZeroOrMore,
+            _,
+        ) => return None,
     })
 }
 

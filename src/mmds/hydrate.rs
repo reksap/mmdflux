@@ -180,6 +180,8 @@ pub fn from_document(output: &Document) -> Result<Graph, HydrationError> {
         if !style.is_empty() {
             hydrated.style = hydrated.style.merge(&style);
         }
+        hydrated.tail_label = hydrated.arrow_start.er_cardinality().map(str::to_string);
+        hydrated.head_label = hydrated.arrow_end.er_cardinality().map(str::to_string);
         hydrated.from_subgraph = edge.from_subgraph.clone();
         hydrated.to_subgraph = edge.to_subgraph.clone();
         diagram.add_edge(hydrated);
@@ -853,7 +855,10 @@ fn validate_output(output: &Document) -> Result<(), HydrationError> {
         });
     }
 
-    if !matches!(output.metadata.diagram_type.as_str(), "flowchart" | "class") {
+    if !matches!(
+        output.metadata.diagram_type.as_str(),
+        "flowchart" | "class" | "er"
+    ) {
         return Err(HydrationError::UnsupportedDiagramType {
             value: output.metadata.diagram_type.clone(),
         });

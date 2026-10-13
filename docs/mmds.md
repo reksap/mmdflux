@@ -987,6 +987,7 @@ just conformance
 | --------- | -------------- | -------- | --------- |
 | Flowchart | `"flowchart"`  | Graph    | Supported |
 | Class     | `"class"`      | Graph    | Supported |
+| ER        | `"er"`         | Graph    | Supported |
 | State     | `"state"`      | Graph    | Supported |
 | Sequence  | `"sequence"`   | Timeline | Supported |
 
@@ -1107,3 +1108,13 @@ Positions come from the proportional SVG layout engine and are in the same unitl
   ]
 }
 ```
+
+### ER graph vocabulary
+
+Version 1 ER documents use `metadata.diagram_type: "er"`. Entity attributes
+remain ordered rows in the multiline node label, including the compartment
+separator. Endpoints encode cardinality using `er_one`, `er_zero_or_one`,
+`er_one_or_more`, and `er_zero_or_more`. Solid/dashed strokes preserve
+identifying/non-identifying relationships. Replay to SVG draws crow’s foot;
+Text/ASCII derives numeric endpoint labels from the marker tokens.
+Exporting ER documents back to Mermaid syntax is not supported.

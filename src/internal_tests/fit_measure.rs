@@ -82,7 +82,10 @@ pub(crate) fn source_graph(input: &str) -> Graph {
         .parse(input)
         .expect("parse");
     match parsed.into_payload().expect("payload") {
-        Diagram::Flowchart(graph) | Diagram::Class(graph) | Diagram::State(graph) => graph,
+        Diagram::Flowchart(graph)
+        | Diagram::Er(graph)
+        | Diagram::Class(graph)
+        | Diagram::State(graph) => graph,
         Diagram::Sequence(_) => panic!("not a graph-family diagram"),
     }
 }

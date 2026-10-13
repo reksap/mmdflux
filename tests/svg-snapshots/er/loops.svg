@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 404.26 230.00" style="max-width: 404.26px; background-color: transparent;" font-family="&quot;trebuchet ms&quot;, verdana, arial, sans-serif" font-size="16.00">
+  <defs>
+    <marker id="er-one" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 18 1 L 18 11 M 8 1 L 8 11" fill="none" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-one-or-more" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 12 6 L 20 1 M 12 6 L 20 6 M 12 6 L 20 11 M 8 1 L 8 11" fill="none" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-zero-or-more" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 12 6 L 20 1 M 12 6 L 20 6 M 12 6 L 20 11 " fill="none" stroke="#333" stroke-width="1" />
+      <circle cx="6" cy="6" r="4" fill="white" stroke="#333" stroke-width="1" />
+    </marker>
+    <marker id="er-zero-or-one" viewBox="0 0 20 12" refX="20" refY="6" markerWidth="20.00" markerHeight="12.00" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+      <path d="M 18 1 L 18 11 " fill="none" stroke="#333" stroke-width="1" />
+      <circle cx="6" cy="6" r="4" fill="white" stroke="#333" stroke-width="1" />
+    </marker>
+  </defs>
+  <g transform="translate(0.00,0.00)">
+    <g class="edgePaths">
+      <path d="M158.03,21.50 L186.53,21.50 Q191.53,21.50 191.53,26.50 L191.53,43.50 Q191.53,48.50 186.53,48.50 L158.03,48.50" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#er-one)" marker-end="url(#er-zero-or-more)" />
+      <path d="M235.03,64.00 L235.03,95.00 Q235.03,100.00 240.03,100.00 L297.81,100.00 Q302.81,100.00 302.81,105.00 L302.81,166.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-start="url(#er-one)" marker-end="url(#er-one-or-more)" />
+      <path d="M370.59,64.00 L370.59,113.00 Q370.59,118.00 365.59,118.00 L358.70,118.00 Q353.70,118.00 353.70,123.00 L353.70,166.00" stroke="#333" stroke-width="1.00" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5.00" marker-start="url(#er-zero-or-one)" marker-end="url(#er-zero-or-more)" />
+    </g>
+    <g class="nodes">
+      <g class="node default" id="CUSTOMER" data-id="CUSTOMER" data-look="classic">
+        <rect x="227.03" y="8.00" width="151.55" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="302.81" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">CUSTOMER</text>
+      </g>
+      <g class="node default" id="EMPLOYEE" data-id="EMPLOYEE" data-look="classic">
+        <rect x="8.00" y="8.00" width="148.03" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="82.02" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">EMPLOYEE</text>
+      </g>
+      <g class="node default" id="ORDER" data-id="ORDER" data-look="classic">
+        <rect x="243.92" y="168.00" width="117.78" height="54.00" fill="white" stroke="#333" stroke-width="1.00" stroke-linejoin="round" />
+        <text x="302.81" y="195.00" text-anchor="middle" dominant-baseline="middle" fill="#333">ORDER</text>
+      </g>
+    </g>
+    <g class="edgeLabels">
+      <rect x="154.62" y="21.00" width="73.82" height="28.00" fill="white" />
+      <text x="191.53" y="35.00" text-anchor="middle" dominant-baseline="middle" fill="#333">manages</text>
+      <rect x="236.56" y="86.00" width="54.25" height="28.00" fill="white" />
+      <text x="263.69" y="100.00" text-anchor="middle" dominant-baseline="middle" fill="#333">places</text>
+      <rect x="334.03" y="104.00" width="62.23" height="28.00" fill="white" />
+      <text x="365.14" y="118.00" text-anchor="middle" dominant-baseline="middle" fill="#333">reviews</text>
+    </g>
+  </g>
+</svg>

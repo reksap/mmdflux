@@ -40,6 +40,27 @@ pub enum Arrow {
     Diamond,
     /// Open (hollow) diamond: ◇ (aggregation)
     OpenDiamond,
+    /// ER cardinality: exactly one.
+    ErOne,
+    /// ER cardinality: zero or one.
+    ErZeroOrOne,
+    /// ER cardinality: one or more.
+    ErOneOrMore,
+    /// ER cardinality: zero or more.
+    ErZeroOrMore,
+}
+
+impl Arrow {
+    /// Numeric endpoint label for ER cardinality in text output.
+    pub fn er_cardinality(self) -> Option<&'static str> {
+        match self {
+            Self::ErOne => Some("1"),
+            Self::ErZeroOrOne => Some("0..1"),
+            Self::ErOneOrMore => Some("1..*"),
+            Self::ErZeroOrMore => Some("0..*"),
+            _ => None,
+        }
+    }
 }
 
 /// An edge connecting two nodes.

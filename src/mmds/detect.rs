@@ -38,9 +38,10 @@ pub fn resolve_logical_diagram_id(output: &Document) -> Result<&'static str, Ren
     match output.metadata.diagram_type.as_str() {
         "flowchart" => Ok("flowchart"),
         "class" => Ok("class"),
+        "er" => Ok("er"),
         other => Err(RenderError {
             message: format!(
-                "MMDS input currently supports flowchart/class logical diagrams, got {other}"
+                "MMDS input currently supports flowchart/class/er logical diagrams, got {other}"
             ),
         }),
     }

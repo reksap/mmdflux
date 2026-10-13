@@ -215,7 +215,9 @@ pub(super) fn render_edge_labels(
         let text_style = edge_text_style_key(metrics, edge);
         let text_attrs =
             dynamic_attrs.clone() + &font_attrs_for_style(default_text_style, &text_style);
-        if let (Some(label), Some(pos)) = (&edge.head_label, head_pos) {
+        if let (Some(label), Some(pos)) = (&edge.head_label, head_pos)
+            && edge.arrow_end.er_cardinality().is_none()
+        {
             render_text_centered(
                 writer,
                 Point {
@@ -237,7 +239,9 @@ pub(super) fn render_edge_labels(
                 },
             );
         }
-        if let (Some(label), Some(pos)) = (&edge.tail_label, tail_pos) {
+        if let (Some(label), Some(pos)) = (&edge.tail_label, tail_pos)
+            && edge.arrow_start.er_cardinality().is_none()
+        {
             render_text_centered(
                 writer,
                 Point {

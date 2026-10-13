@@ -1,0 +1,7 @@
+             +------------------+
++-------+    |  Sales Customer  |
+| EMPTY |    +------------------+
++-------+    | int id PK,UK     |
+             | string name      |
+             | int parent_id FK |
+             +------------------+

@@ -24,6 +24,9 @@ pub(in crate::runtime) fn render_payload(
         Diagram::Flowchart(mut graph) => {
             graph_family::render_graph_family("flowchart", &mut graph, format, config)
         }
+        Diagram::Er(mut graph) => {
+            graph_family::render_graph_family("er", &mut graph, format, config)
+        }
         Diagram::Class(mut graph) => {
             graph_family::render_graph_family("class", &mut graph, format, config)
         }
@@ -73,6 +76,7 @@ pub(in crate::runtime) fn materialize_payload(
         Diagram::Flowchart(mut graph) => {
             graph_family::materialize_graph_family("flowchart", &mut graph, config)
         }
+        Diagram::Er(mut graph) => graph_family::materialize_graph_family("er", &mut graph, config),
         Diagram::Class(mut graph) => {
             graph_family::materialize_graph_family("class", &mut graph, config)
         }
@@ -108,6 +112,10 @@ fn annotate_graph_payload_ids(payload: Diagram) -> Diagram {
         Diagram::Class(mut graph) => {
             annotate_node_ids(&mut graph);
             Diagram::Class(graph)
+        }
+        Diagram::Er(mut graph) => {
+            annotate_node_ids(&mut graph);
+            Diagram::Er(graph)
         }
         Diagram::State(mut graph) => {
             annotate_node_ids(&mut graph);

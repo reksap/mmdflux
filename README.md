@@ -103,7 +103,7 @@ compound graph, not rendered recursively. This produces globally optimized
 positioning and consistent cross-boundary edge routing.
 
 **Multiple engines for graph-family diagrams.** The default `flux-layered`
-engine handles flowchart/class/state text, SVG, and MMDS output. Switch to
+engine handles flowchart/class/state/ER text, SVG, and MMDS output. Switch to
 `mermaid-layered` for Mermaid-compatible graph output.
 
 ## Ecosystem
@@ -449,6 +449,47 @@ public contract.
   materialized MMDS documents with the snapshot diff API
 
 Verify the examples compile with `cargo test --examples`.
+
+## Entity relationship diagrams
+
+`erDiagram` renders to Text, ASCII, SVG, and MMDS through the same CLI and library facade:
+
+```mermaid
+erDiagram
+    CUSTOMER {
+        int id PK
+        string name
+    }
+    ORDER {
+        int id PK
+        int customer_id FK
+    }
+    CUSTOMER ||--o{ ORDER : places
+```
+
+Supported syntax includes standalone and implicit entities, quoted entity names,
+ordered `type name` attributes, PK/FK/UK (including comma-separated combinations),
+quoted attribute comments, relationship labels, and `direction TB/BT/LR/RL`
+(default TB). Repeated declarations append attributes to the same entity.
+Identifying relationships use `--`; non-identifying relationships use `..`.
+SVG draws crow’s foot markers at both ends. Text and ASCII show numeric cardinality:
+
+| Left marker | Right marker | Text/ASCII |
+| --- | --- | --- |
+| `||` | `||` | `1` |
+| `|o` | `o|` | `0..1` |
+| `}|` | `|{` | `1..*` |
+| `}o` | `o{` | `0..*` |
+
+Entity aliases, ER styling, grouping, word-form cardinality aliases, and MMDS-to-ER
+Mermaid export are deferred. Unsupported statements produce parsing errors.
+The supported subset follows the [Mermaid ER syntax](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
+
+MMDS remains version 1, with `metadata.diagram_type: "er"`, multiline entity
+labels, and endpoint tokens `er_one`, `er_zero_or_one`, `er_one_or_more`, and
+`er_zero_or_more`. Both layout and routed documents can replay to Text, ASCII,
+and SVG. Regenerate ER snapshots only with
+`GENERATE_ER_SNAPSHOTS=1 cargo nextest run --test compliance_er`.
 
 ## License
 

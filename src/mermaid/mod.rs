@@ -5,6 +5,7 @@
 
 pub mod ast;
 pub mod class;
+pub mod er;
 pub mod error;
 pub mod flowchart;
 pub mod sequence;
@@ -24,6 +25,7 @@ pub(crate) use theme_hint::{extract_theme_hint, strip_theme_only_compat_syntax};
 pub enum DiagramType {
     Flowchart,
     Class,
+    Er,
     Sequence,
     State,
 }
@@ -40,6 +42,7 @@ pub fn detect_diagram_type(input: &str) -> Option<DiagramType> {
 
     match first_word.to_ascii_lowercase().as_str() {
         "graph" | "flowchart" => Some(DiagramType::Flowchart),
+        "erdiagram" => Some(DiagramType::Er),
         "classdiagram" => Some(DiagramType::Class),
         "sequencediagram" => Some(DiagramType::Sequence),
         "statediagram-v2" | "statediagram" => Some(DiagramType::State),

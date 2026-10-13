@@ -2,7 +2,7 @@
 //!
 //! mmdflux parses [Mermaid](https://mermaid.js.org/) diagram syntax and
 //! renders it as Unicode/ASCII text, SVG, or structured JSON (MMDS).
-//! Supported diagram types: **flowchart**, **class**, **state**, and **sequence**.
+//! Supported diagram types: **flowchart**, **class**, **state**, **ER**, and **sequence**.
 //!
 //! # High-Level API
 //!
@@ -159,6 +159,9 @@
 //!     }
 //!     Diagram::Class(graph) => {
 //!         println!("class diagram with {} nodes", graph.nodes.len());
+//!     }
+//!     Diagram::Er(graph) => {
+//!         println!("ER diagram with {} entities", graph.nodes.len());
 //!     }
 //!     Diagram::State(graph) => {
 //!         println!("state diagram with {} nodes", graph.nodes.len());

@@ -14,7 +14,11 @@ export type MmdsArrow =
   | "circle"
   | "open_triangle"
   | "diamond"
-  | "open_diamond";
+  | "open_diamond"
+  | "er_one"
+  | "er_zero_or_one"
+  | "er_one_or_more"
+  | "er_zero_or_more";
 
 export type MmdsPortFace = "top" | "bottom" | "left" | "right";
 export type MmdsEdgeLabelSide = "above" | "below" | "center";

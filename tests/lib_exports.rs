@@ -372,7 +372,7 @@ fn crate_root_rustdoc_names_public_workflows_without_unreleased_migration_guide(
     let source = lib_rs_source();
 
     for required in [
-        "Supported diagram types: **flowchart**, **class**, **state**, and **sequence**.",
+        "Supported diagram types: **flowchart**, **class**, **state**, **ER**, and **sequence**.",
         "# Stability",
         "render_diagram",
         "materialize_diagram",

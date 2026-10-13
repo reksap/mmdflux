@@ -926,6 +926,7 @@ pub(in crate::runtime) fn search_diagram(
             Diagram::Flowchart(graph) => {
                 fit_graph("flowchart", &graph, format, &effective_config, fit)
             }
+            Diagram::Er(graph) => fit_graph("er", &graph, format, &effective_config, fit),
             Diagram::Class(graph) => fit_graph("class", &graph, format, &effective_config, fit),
             Diagram::State(graph) => fit_graph("state", &graph, format, &effective_config, fit),
             Diagram::Sequence(model) => Ok(SearchResult {
@@ -1086,6 +1087,7 @@ mod tests {
         };
         match payload::prepare_payload_for_render(payload, &effective_config) {
             Diagram::Flowchart(graph) => ("flowchart", graph),
+            Diagram::Er(graph) => ("er", graph),
             Diagram::Class(graph) => ("class", graph),
             Diagram::State(graph) => ("state", graph),
             Diagram::Sequence(_) => panic!("expected a graph family"),

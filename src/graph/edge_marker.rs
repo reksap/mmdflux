@@ -115,6 +115,13 @@ pub(crate) fn marker_envelope(arrow: Arrow) -> Option<MarkerEnvelope> {
             width: 11.0,
         }),
 
+        // ER viewBox 20x12, refX=20, pullback=2; outer symbol stays 2px from the entity.
+        Arrow::ErOne | Arrow::ErZeroOrOne | Arrow::ErOneOrMore | Arrow::ErZeroOrMore => {
+            Some(MarkerEnvelope {
+                length: 22.0,
+                width: 12.0,
+            })
+        }
         Arrow::None => None,
     }
 }
